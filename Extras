@@ -1,0 +1,25 @@
+int getStringLength(const char* source)
+{
+	if (source == nullptr)
+		return 0;
+	int i = 0;
+	while (source[i] != '\0')
+			i++;
+	return i;
+}
+
+void copyString(char* destination, const char* source)
+{
+	if (source == nullptr)
+	{
+		destination = nullptr;
+		return;
+	}
+	int i = 0;
+	while (source[i] !='\0')
+	{
+		destination[i] = source[i];
+		i++;
+	}
+	destination[i] = '\0';
+}
