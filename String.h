@@ -13,3 +13,4 @@ public:
 	String(const char*);
 	~String();
 	bool isEmpty()const;
+	void display()const;
