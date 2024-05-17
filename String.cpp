@@ -12,12 +12,21 @@ String::String(char c):String()
 	data = new char[size] { c,'\0' };
 }
 
-String::~String()
+int String::getLength()const
 {
-	if(data!=nullptr)
-		delete[] data;
-	data = nullptr;
-	size = 0;
+	if (data == nullptr)
+		return -1;
+	int i = 0;
+	while (data[i] != '\0')
+	{
+		i++;
+	}
+	return i;
+}
+
+int String::getSize()const
+{
+	return size;
 }
 
 String::String(const char* c):String()
