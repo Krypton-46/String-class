@@ -14,3 +14,5 @@ public:
 	~String();
 	bool isEmpty()const;
 	void display()const;
+	int getLength()const;
+	int getSize()const;
