@@ -16,3 +16,6 @@ public:
 	void display()const;
 	int getLength()const;
 	int getSize()const;
+	char& at(const int);
+	const char& at(const int )const;
+	String(const String&);
