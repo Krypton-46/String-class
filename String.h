@@ -11,6 +11,7 @@ public:
 	String();
 	String(const char);
 	String(const char*);
+	String(const String&);
 	~String();
 	bool isEmpty()const;
 	void display()const;
@@ -18,4 +19,6 @@ public:
 	int getSize()const;
 	char& at(const int);
 	const char& at(const int )const;
-	String(const String&);
+	void trimLeft();
+	void trimRight();
+	void trim();
