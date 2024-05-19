@@ -1,5 +1,6 @@
 #include"String.h"
 #include"Extras.h"
+
 String::String()
 {
 	data = nullptr;
@@ -71,6 +72,45 @@ String::String(const String & ref)
 	size = ref.size;
 	data = new char[size];
 	copyString(data, ref.data);
+}
+
+void String::trimLeft()
+{
+	if (data == nullptr)
+		return;
+	int i = 0;
+	while (i < size && (data[i] == '\t' || data[i] == ' '||data[i]=='\n'))
+	{
+		i++;
+	}
+	if (i == 0)
+		return;
+	copyString(data, data + i);
+}
+
+void String::trimRight()
+{
+	if (data == nullptr)
+		return;
+	int i = getLength()-1;
+	while (i>=0&&(data[i]=='\t'||data[i]==' '||data[i]=='\n'))
+	{
+		i--;
+	}
+	if (i < 0 && (data[0] == ' ' || data[0] == '\n' || data[0] == '\t'))
+	{
+		data[0] = '\0';
+		return;
+	}
+	else if (i < 0)
+		return;
+	data[i + 1] = '\0';
+}
+
+void String::trim()
+{
+	trimLeft();
+	trimRight();
 }
 String::~String()
 {
