@@ -112,6 +112,32 @@ void String::trim()
 	trimLeft();
 	trimRight();
 }
+
+void String::makeUpper()
+{
+	if (data == nullptr)
+		return;
+	int i = 0;
+	while (data[i]!='\0')
+	{
+		if (data[i] >= 'a' && data[i] <= 'z')
+			data[i] = data[i] - 32;
+		i++;
+	}
+}
+
+void String::makeLower()
+{
+	if (data == nullptr)
+		return;
+	int i = 0;
+	while (data[i] != '\0')
+	{
+		if (data[i] >= 'A' && data[i] <= 'Z')
+			data[i] = data[i]+ 32;;
+		i++;
+	}
+}
 String::~String()
 {
 	if(data!=nullptr)
