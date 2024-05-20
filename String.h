@@ -22,3 +22,6 @@ public:
 	void trimLeft();
 	void trimRight();
 	void trim();
+	void makeUpper();
+	void makeLower();
+	void shrink();
