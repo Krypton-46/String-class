@@ -13,6 +13,43 @@ String::String(char c):String()
 	data = new char[size] { c,'\0' };
 }
 
+String::String(const char* c):String()
+{
+	if(c == nullptr)
+		return;
+	size = getStringLength(c)+1;
+	data = new char[size];
+	copyString(data,c);
+}
+String::String(const String & ref)
+{
+	if (ref.isEmpty())
+		return;
+	size = ref.size;
+	data = new char[size];
+	copyString(data, ref.data);
+}
+String::~String()
+{
+	if(data!=nullptr)
+		delete[] data;
+	data = nullptr;
+	size = 0;
+}
+
+bool String::isEmpty()const
+{
+	if (data == nullptr || data[0] == '\0')
+		return true;
+	return false;
+}
+
+void String:: display() const
+{
+	if(data!=nullptr)
+		cout << data;
+}
+
 int String::getLength()const
 {
 	if (data == nullptr)
@@ -28,21 +65,6 @@ int String::getLength()const
 int String::getSize()const
 {
 	return size;
-}
-
-String::String(const char* c):String()
-{
-	if(c == nullptr)
-		return;
-	size = getStringLength(c)+1;
-	data = new char[size];
-		copyString(data,c);
-}
-
-void String:: display() const
-{
-	if(data!=nullptr)
-		cout << data;
 }
 
 char& String::at(int index)
@@ -65,14 +87,7 @@ const char& String::at(const int index)const
 		return data[0];
 }
 
-String::String(const String & ref)
-{
-	if (ref.isEmpty())
-		return;
-	size = ref.size;
-	data = new char[size];
-	copyString(data, ref.data);
-}
+
 
 void String::trimLeft()
 {
@@ -138,10 +153,9 @@ void String::makeLower()
 		i++;
 	}
 }
-String::~String()
+
+void String::shrink()
 {
-	if(data!=nullptr)
-		delete[] data;
-	data = nullptr;
-	size = 0;
+	reSize(getLength());
 }
+
