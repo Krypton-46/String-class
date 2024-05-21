@@ -159,3 +159,64 @@ void String::shrink()
 	reSize(getLength());
 }
 
+long long int String::convertToInteger()const
+{
+	if (data == nullptr || data[0] == '\0' || ((data[0] > '9' && data[0] != '-')||(data[0] < '0' && data[0] != '-')))
+		exit(0);
+	Sign sign = POSITIVE;
+	int i = 0;
+	int num = 0;
+	if (data[i] == '-')
+	{
+		i++;
+		sign = NEGATIVE;
+	}
+	while (data[i] != '\0'&&data[i]>='0'&&data[i]<='9')
+	{
+		num = num * 10 + (data[i] - '0');
+		i++;
+	}
+	if (sign == NEGATIVE)
+		num = num * (-1);
+	return num;
+}
+
+float String::convertToFloat()const
+{
+	if (data == nullptr || data[0] == '\0' || ((data[0] > '9' &&( data[0] != '.'&&data[0]!='-')) || (data[0] < '0' &&( data[0] != '.' && data[0] != '-'))))
+	{
+		exit(0);
+	}
+	Sign sign = POSITIVE;
+	int i = 0;
+	float num = 0;
+	if (data[i] == '-')
+	{
+		i++;
+		sign = NEGATIVE;
+	}
+	int counter = 0;
+	while (data[i] != '\0'&&data[i]>='0'&&data[i]<='9')
+	{
+		num = num * 10 + (data[i] - '0');
+		i++;
+	}
+	if (data[i] == '.')
+	{
+		i++;
+		while (data[i] != '\0' && data[i] >= '0' && data[i] <= '9')
+		{
+			num = num * 10 + (data[i] - '0');
+			counter++;
+			i++;
+		}
+	}
+	while (counter)
+	{
+		num = num / 10;
+		counter--;
+	}
+	if (sign == NEGATIVE)
+		num = num * (-1);
+	return num;
+}
