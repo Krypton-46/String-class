@@ -25,3 +25,5 @@ public:
 	void makeUpper();
 	void makeLower();
 	void shrink();
+	long long int convertToInteger()const;
+	float convertToFloat()const;
