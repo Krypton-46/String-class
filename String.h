@@ -27,3 +27,5 @@ public:
 	void shrink();
 	long long int convertToInteger()const;
 	float convertToFloat()const;
+	void reverse();
+
