@@ -220,3 +220,16 @@ float String::convertToFloat()const
 		num = num * (-1);
 	return num;
 }
+
+void String::reverse()
+{
+	if (data == nullptr)
+		return;
+	int len = getLength();
+	int j = len - 1;
+	for (int i = 0; i <= (len / 2) - 1; i++)
+	{
+		mySwap(data[i], data[j]);
+		j--;
+	}
+}
