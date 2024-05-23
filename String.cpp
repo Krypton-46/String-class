@@ -233,3 +233,27 @@ void String::reverse()
 		j--;
 	}
 }
+
+int String::compare(const String& s2)const
+{
+	if (data == nullptr || s2.data == nullptr)
+		exit(0);
+	if (data == nullptr && s2.data == nullptr)
+		return 0;
+	int i = 0;
+	while (data[i] != '\0' && s2.data[i] != '\0')
+	{
+		if (data[i] < s2.data[i])
+			return -1;
+		else if (data[i] > s2.data[i])
+			return 1;
+		else
+			i++;
+	}
+	if (data[i] == '\0'&&s2.data[i]=='\0')
+		return 0;
+	else if (s2.data[i] == '\0')
+		return 1;
+	else
+		return -1;
+}
