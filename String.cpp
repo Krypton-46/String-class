@@ -257,3 +257,10 @@ int String::compare(const String& s2)const
 	else
 		return -1;
 }
+
+void String::remove(const int index, const int count)
+{
+	if (data == nullptr||index<0||index>=getLength()||index+count>getLength())
+		return;
+	copyString(data + index, data + index + count);
+}
