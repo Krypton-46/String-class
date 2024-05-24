@@ -29,5 +29,6 @@ public:
 	float convertToFloat()const;
 	void reverse();
 	int compare(const String&)const;
+	void remove(const int , const int = 1);
 
 
