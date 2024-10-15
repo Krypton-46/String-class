@@ -52,8 +52,8 @@ void String:: display() const
 
 int String::getLength()const
 {
-	if (data == nullptr)
-		return -1;
+	if (isEmpty())
+		return 0;
 	int i = 0;
 	while (data[i] != '\0')
 	{
