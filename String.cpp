@@ -109,9 +109,7 @@ void String::trimRight()
 		return;
 	int i = getLength()-1;
 	while (i>=0&&(data[i]=='\t'||data[i]==' '||data[i]=='\n'))
-	{
 		i--;
-	}
 	if (i < 0 && (data[0] == ' ' || data[0] == '\n' || data[0] == '\t'))
 	{
 		data[0] = '\0';
@@ -130,7 +128,7 @@ void String::trim()
 
 void String::makeUpper()
 {
-	if (data == nullptr)
+	if (isEmpty())
 		return;
 	int i = 0;
 	while (data[i]!='\0')
