@@ -31,7 +31,7 @@ String::String(const String & ref)
 }
 String::~String()
 {
-	if(data!=nullptr)
+	if(data)
 		delete[] data;
 	data = nullptr;
 	size = 0;
